@@ -1,4 +1,18 @@
+{{- $remote := false -}}
+{{- $zsh_plugins := "" -}}
+{{- $p10k_prompt_top := "" -}}
+{{- $p10k_prompt_bottom := "" -}}
+
+{{- if eq .chezmoi.osRelease.id "kali" -}}
+{{- $zsh_plugins = "hexcat-kali" -}}
+{{- end -}}
+
+{{- if regexMatch "\.compute\.internal$" .chezmoi.fqdnHostname -}}
+{{- $p10k_prompt_top = "load ram disk_usage" -}}
+{{- $p10k_prompt_bottom = "ip public_ip" -}}
+{{- end -}}
+
 [data]
-zsh_plugins = ""
-p10k_prompt_top = ""
-p10k_prompt_bottom = ""
+zsh_plugins = {{ $zsh_plugins | quote }}
+p10k_prompt_top = {{ $p10k_prompt_top | quote }}
+p10k_prompt_bottom = {{ $p10k_prompt_bottom | quote }}
