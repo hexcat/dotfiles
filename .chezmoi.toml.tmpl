@@ -7,7 +7,7 @@
 {{- $zsh_plugins = "hexcat-kali" -}}
 {{- end -}}
 
-{{- if regexMatch "\.compute\.internal$" .chezmoi.fqdnHostname -}}
+{{- if regexMatch "\\.compute\\.internal$" .chezmoi.fqdnHostname -}}
 {{- $p10k_prompt_top = "load ram disk_usage" -}}
 {{- $p10k_prompt_bottom = "ip public_ip" -}}
 {{- end -}}
